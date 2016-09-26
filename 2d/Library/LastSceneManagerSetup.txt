@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/2dp.unity
+  isLoaded: 1
+  isActive: 1

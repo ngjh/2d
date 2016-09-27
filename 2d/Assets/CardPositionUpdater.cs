@@ -46,7 +46,10 @@ public class CardPositionUpdater : MonoBehaviour {
 			selectedCard.setImageSelectedToFalse();
 			selectedCard.setNotMoveable ();
 			selectedPanel.setPanelSelectedStatus ();
-
+			if (string.Compare (selectedCard.getCardOwner (), "P1") == 0)	//TO SET SELECTED IMAGE BACK TO ITS ORIGINAL COLOR
+				selectedCard.turnBlue ();
+			else
+				selectedCard.turnRed ();
 			selectedCard = null;
 			wlm.increaseNumberOfCardsPlaced ();
 			return true;

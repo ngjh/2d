@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+
 public class PanelClickManager : EventTrigger {
 
 	Panel panel;
@@ -23,6 +24,7 @@ public class PanelClickManager : EventTrigger {
 		pos = GetComponentInParent<CardPositionUpdater> ();
 		imageMoved = pos.moveImage (panel);
 		if (imageMoved) {
+			
 			tm.togglePlayerTurn ();
 			panelUpdater.setColorAccordingToValue (panel);
 		}

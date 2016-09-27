@@ -58,6 +58,8 @@ public class TurnManager : MonoBehaviour {
 				cards [i+5].setMoveable ();
 
 			}
+			foreach (Card c in cards)
+				Debug.Log (c.getMoveableStatus());
 			Debug.Log ("P2 turn");
 		}
 	}

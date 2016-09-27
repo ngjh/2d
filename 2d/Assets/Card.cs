@@ -71,6 +71,12 @@ public class Card : MonoBehaviour {
 		image.color = Color.blue;
 	}
 
+	public void turnYellow(){
+		if(image == null)
+			image = GetComponent<Image>();
+		image.color = Color.yellow;
+	}
+
 	public Image getImage(){
 		return image;
 	}
@@ -96,5 +102,9 @@ public class Card : MonoBehaviour {
 
 	public void setImageSelectedToFalse(){
 		selected = false;
+	}
+
+	public bool getMoveableStatus(){
+		return moveable;
 	}
 }

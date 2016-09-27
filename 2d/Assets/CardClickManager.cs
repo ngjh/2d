@@ -19,13 +19,17 @@ public class CardClickManager : EventTrigger {
 		previousSelectedCard = cardPos.getSelectedCard ();
 		if (previousSelectedCard != card && previousSelectedCard !=null) {//deselect previous card
 			previousSelectedCard.setImageSelectedToFalse ();
+			if (string.Compare (previousSelectedCard.getCardOwner (), "P1") == 0)	//TO SET SELECTED IMAGE BACK TO ITS ORIGINAL COLOR
+				previousSelectedCard.turnBlue ();
+			else
+				previousSelectedCard.turnRed ();
 		}
 
 
 		card.selectImage ();
 		Debug.Log( card.getImageSelectedStatus());
 		if (card.getImageSelectedStatus ()) {
-			
+			card.turnYellow ();
 			cardPos.setSelectedCard(card);
 		}
 			

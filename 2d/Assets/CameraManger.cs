@@ -15,7 +15,7 @@ public class CameraManger : MonoBehaviour {
 	}
 
 	public void loginCamera(){
-		Debug.Log (usernameField.text);
+		
 		if (string.Compare (usernameField.text, "test") == 0) {
 			cams [1].gameObject.SetActive (false);
 			cams [2].gameObject.SetActive (true);

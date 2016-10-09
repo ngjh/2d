@@ -50,15 +50,18 @@
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardClickManager.cs" />
      <Compile Include="Assets\CardPositionUpdater.cs" />
-     <Compile Include="Assets\CreateTest.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
      <Compile Include="Assets\Panel.cs" />
      <Compile Include="Assets\PanelClickManager.cs" />
      <Compile Include="Assets\PanelUpdater.cs" />
-     <Compile Include="Assets\Test.cs" />
-     <Compile Include="Assets\Test2.cs" />
-     <Compile Include="Assets\Test3.cs" />
+     <Compile Include="Assets\ProgressBarUpdater.cs" />
+     <Compile Include="Assets\ScrollBarValueChanger.cs" />
      <Compile Include="Assets\TurnManager.cs" />
      <Compile Include="Assets\WinLossManager.cs" />
+     <None Include="Assets\ColorfulButtons\Credits.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

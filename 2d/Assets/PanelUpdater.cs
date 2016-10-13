@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PanelUpdater : MonoBehaviour {
-
+	//this script is attached to game canvas
 	Panel[] panels;
 	Card rightCard, leftCard, topCard, bottomCard, currentCard;
 	// Use this for initialization
@@ -16,18 +16,18 @@ public class PanelUpdater : MonoBehaviour {
 	}
 
 	public void setColorAccordingToValue(Panel panel){
-		int i;
+		int i;// for index of panel
 		string s, s2;
 		for(i = 0; i < 9; i++)
-			if(panels[i] == panel)
+			if(panels[i] == panel)//to find index of input panel
 				break;
-		currentCard = panel.getCardOccupyingPanel ();
+		currentCard = panel.getCardOccupyingPanel ();	//get card currently attached to the panel
 
 		if ((i + 3) > 2 && (i + 3 )< 9) {	//turn card on the right to red/blue
 			//if (panels [i+3].getCardOccupyingPanel () != null)
-			rightCard = panels [i+3].getCardOccupyingPanel ();
-			if (rightCard != null && rightCard.getCardLeftValue () < currentCard.getCardRightValue ()) {
-				s = panels [i+3].getPlayerOccupyingPanel ();
+			rightCard = panels [i+3].getCardOccupyingPanel ();	//get card on the right of currentCard
+			if (rightCard != null && rightCard.getCardLeftValue () < currentCard.getCardRightValue ()) {	//rightcard smaller than currentCard
+				s = panels [i+3].getPlayerOccupyingPanel ();	
 				s2 = panel.getPlayerOccupyingPanel ();
 				if (s =="P2" && s2 == "P1") {
 					panels [i+3].setPanelOccupiedP1 ();
@@ -43,8 +43,8 @@ public class PanelUpdater : MonoBehaviour {
 
 		if ((i - 3) >= 0 && (i - 3) < 6) {	//turn card on the left to red/blue
 			
-			leftCard = panels [i-3].getCardOccupyingPanel ();
-			if (leftCard != null && leftCard.getCardRightValue () < currentCard.getCardLeftValue ()) {
+			leftCard = panels [i-3].getCardOccupyingPanel ();//get card on the left of currentCard
+			if (leftCard != null && leftCard.getCardRightValue () < currentCard.getCardLeftValue ()) {//leftCard smaller than currentCard
 				s = panels [i-3].getPlayerOccupyingPanel ();
 				s2 = panel.getPlayerOccupyingPanel ();
 				if (s =="P2" && s2 == "P1") {
@@ -61,8 +61,8 @@ public class PanelUpdater : MonoBehaviour {
 
 
 		if ((i + 1) % 3 != 0) {		//turn card on the bottom to red/blue
-			bottomCard = panels [i+1].getCardOccupyingPanel ();
-			if (bottomCard != null && bottomCard.getCardTopValue () < currentCard.getCardBotValue ()) {
+			bottomCard = panels [i+1].getCardOccupyingPanel ();//get card on the bottom of currentCard
+			if (bottomCard != null && bottomCard.getCardTopValue () < currentCard.getCardBotValue ()) { //bottomCard smaller than currentCard
 				s = panels [i+1].getPlayerOccupyingPanel ();
 				s2 = panel.getPlayerOccupyingPanel ();
 				if (s == "P2" && s2 == "P1") {
@@ -78,8 +78,8 @@ public class PanelUpdater : MonoBehaviour {
 		}
 
 		if ((i + 3) % 3 != 0) {		//turn card on the top to red/blue
-			topCard = panels [i-1].getCardOccupyingPanel ();
-			if (topCard != null && topCard.getCardBotValue () < currentCard.getCardTopValue ()) {
+			topCard = panels [i-1].getCardOccupyingPanel ();	//get card on the top of currentCard
+			if (topCard != null && topCard.getCardBotValue () < currentCard.getCardTopValue ()) {	//topCard smaller than currentCard
 				s = panels [i-1].getPlayerOccupyingPanel ();
 				s2 = panel.getPlayerOccupyingPanel ();
 				if (s == "P2" && s2 == "P1") {

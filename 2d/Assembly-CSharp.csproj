@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ButtonClick.cs" />
      <Compile Include="Assets\CameraManger.cs" />
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardClickManager.cs" />
@@ -54,6 +53,7 @@
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Panel.cs" />
      <Compile Include="Assets\PanelClickManager.cs" />
      <Compile Include="Assets\PanelUpdater.cs" />

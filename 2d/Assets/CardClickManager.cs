@@ -2,13 +2,17 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 public class CardClickManager : EventTrigger {
+	//this script is attached to the cards
 
 	Card card, previousSelectedCard;
 
 	CardPositionUpdater cardPos;
 
 
-
+	void OnEnable(){
+		card = null;
+		previousSelectedCard = null;
+	}
 
 
 	public override void OnPointerClick( PointerEventData data )
@@ -26,11 +30,11 @@ public class CardClickManager : EventTrigger {
 		}
 
 
-		card.selectImage ();
+		card.selectImage ();	//set selected card
 		Debug.Log( card.getImageSelectedStatus());
 		if (card.getImageSelectedStatus ()) {
-			card.turnYellow ();
-			cardPos.setSelectedCard(card);
+			card.turnYellow ();	//visual indication of selected card
+			cardPos.setSelectedCard(card);	//tell CardPositionUpdater which card is selected
 		}
 			
 	}

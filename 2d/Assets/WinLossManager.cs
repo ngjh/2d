@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class WinLossManager : MonoBehaviour {
-
+	//this script is attached to the game canvas
 	Panel[] panels;
 
 	bool winDisplayed = false;
@@ -14,8 +14,11 @@ public class WinLossManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void OnEnable () {
+		winDisplayed = false;
+		numberOfCardsPlaced = 0; 
+		p1Panel = 0; 
+		p2Panel=0;
 	}
 
 	void OnGUI(){

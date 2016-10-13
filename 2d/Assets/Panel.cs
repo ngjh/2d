@@ -2,12 +2,23 @@
 using System.Collections;
 
 public class Panel : MonoBehaviour {
+	//this script is attached to the panels
 	bool panelOccupied = false, panelSelected = false;
 	int panelTopValue, panelBottomValue, panelLeftValue, panelRightValue;
 
 	string panelOccupiedByPlayer = "";
 
 	Card card;
+
+	void OnEnable(){
+		panelOccupied = false;
+		panelSelected = false;
+		panelTopValue = 0;
+		panelBottomValue = 0;
+		panelLeftValue = 0;
+		panelRightValue = 0;
+		panelOccupiedByPlayer = "";
+	}
 
 	public void setPanelOccupiedP1(){
 		panelOccupiedByPlayer = "P1";

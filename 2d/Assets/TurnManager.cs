@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class TurnManager : MonoBehaviour {
-
+	//this script is attached to the game canvas
 	bool p1Turn = true;
 	bool p2Turn = false;
 
 	Card[] cards;
 
+	bool initialised = false;
 	// Use this for initialization
 	void Start () {
 		cards = GetComponentsInChildren<Card> ();
@@ -21,12 +22,26 @@ public class TurnManager : MonoBehaviour {
 			cards [i].setCardOwner ("P2");
 			cards [i].turnRed ();
 		}
-		setCardsNotMoveable ();
+		setCardsNotMoveable ();	
+		initialised = true;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void OnEnable () {
+		if (initialised) {
+			p1Turn = true;
+			p2Turn = false;
+			for (int i = 0; i < 5; i++) {
+				cards [i].setCardOwner ("P1");
+				cards [i].turnBlue ();
+			}
+
+			for (int i = 5; i < 10; i++) {
+				cards [i].setCardOwner ("P2");
+				cards [i].turnRed ();
+			}
+			setCardsNotMoveable ();
+		}
 	}
 
 	public bool getP1Turn(){
@@ -43,7 +58,7 @@ public class TurnManager : MonoBehaviour {
 		setCardsNotMoveable ();
 	}
 
-	private void setCardsNotMoveable (){
+	private void setCardsNotMoveable (){	//set cards that are moveable according to player's turn
 		if (p1Turn == true) {
 			for (int i = 5; i < 10; i++) {
 				cards [i].setNotMoveable ();
@@ -58,8 +73,7 @@ public class TurnManager : MonoBehaviour {
 				cards [i+5].setMoveable ();
 
 			}
-			foreach (Card c in cards)
-				Debug.Log (c.getMoveableStatus());
+
 			Debug.Log ("P2 turn");
 		}
 	}

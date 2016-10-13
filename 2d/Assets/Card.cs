@@ -2,14 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 public class Card : MonoBehaviour {
+
+	//this script is attached to the cards
 	Text[] displayedValue;
 	Text  txt;
 	Image image ;
 	bool selected = false;
 	bool moveable = true;
+	bool initialised = false;
 	int topValue, botValue, leftValue, rightValue;
 
 	string cardOwner;
+
+	Vector3 cardVectorPos;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,8 +31,17 @@ public class Card : MonoBehaviour {
 		displayedValue [2].text = rightValue.ToString ();
 		displayedValue [3].text = botValue.ToString ();
 
+		cardVectorPos = image.transform.position;
+		initialised = true;
+	}
 
-
+	void OnEnable(){
+		if (initialised) {
+			image.transform.position = cardVectorPos;
+			selected = false;
+			moveable = true;
+			cardOwner = "";
+		}
 	}
 
 	// Update is called once per frame

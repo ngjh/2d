@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 
 public class PanelClickManager : EventTrigger {
-
+	//this script is attached to panel
 	Panel panel;
 
 	PanelUpdater panelUpdater;
@@ -19,13 +19,13 @@ public class PanelClickManager : EventTrigger {
 		panelUpdater = GetComponentInParent<PanelUpdater> ();
 		tm = GetComponentInParent<TurnManager> ();
 		panel = GetComponent<Panel> ();
-		panel.setPanelSelectedStatus ();
+		panel.setPanelSelectedStatus ();	//	select panel that has been clicked on
 		Debug.Log( "OnPointerClick called." );
 		pos = GetComponentInParent<CardPositionUpdater> ();
 		imageMoved = pos.moveImage (panel);
 		if (imageMoved) {
 			
-			tm.togglePlayerTurn ();
+			tm.togglePlayerTurn ();	
 			panelUpdater.setColorAccordingToValue (panel);
 		}
 			

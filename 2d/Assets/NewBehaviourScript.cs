@@ -9,13 +9,15 @@ public class NewBehaviourScript : MonoBehaviour {
 
     IEnumerator Start()
     {
+		Debug.Log (Input.location.isEnabledByUser);
+		Debug.Log (Input.location.status);
 		button.interactable = false;
 		// First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
-			Input.location.Start(1,1);
+			yield break;
 
         // Start service before querying location
-        
+		Input.location.Start(1,1);
         int maxWait = 20;
 		Debug.Log (Input.location.status);
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
@@ -57,16 +59,16 @@ public class NewBehaviourScript : MonoBehaviour {
     void checkGPS() {
         double lat = Input.location.lastData.latitude;
         double len = Input.location.lastData.longitude;
-		//double LTlat = 1.345211;   
+		//double LTlat = 1.345211;  1.346584, 103.679718
         //double LTlong = 103.681185;
-		double LTlat = 1.346271;
-		double LTlong = 103.687110;
+		double LTlat =  1.346584;
+		double LTlong = 103.679718;
         double dist = DistanceBetweenPlaces(lat, len, LTlat, LTlong);
 
 		Debug.Log (Input.location.lastData.latitude);
 		Debug.Log (Input.location.lastData.longitude);
         
-        if (dist <= 20)
+        if (dist <= 100)
         {
 			button.interactable = true;
         }

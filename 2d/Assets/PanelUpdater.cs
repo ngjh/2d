@@ -7,7 +7,7 @@ public class PanelUpdater : MonoBehaviour {
 	Card rightCard, leftCard, topCard, bottomCard, currentCard;
 	// Use this for initialization
 	void Start () {
-		panels = GetComponentsInChildren<Panel> ();
+		
 	}
 	
 	// Update is called once per frame
@@ -15,9 +15,24 @@ public class PanelUpdater : MonoBehaviour {
 	
 	}
 
+	void OnEnable(){
+		panels = GetComponentsInChildren<Panel> ();
+		foreach (Panel p in panels) {
+			p.setPanelSelectedFalse ();
+			p.setPanelOccupiedFalse ();
+			p.setPanelLeftValue (0);
+			p.setPanelRightValue (0);
+			p.setPanelAboveValue (0);
+			p.setPanelBelowValue (0);
+			p.setPanelOccupiedNoPlayers ();
+			p.setCardOccupyingPanel (null);
+		}
+	}
+
 	public void setColorAccordingToValue(Panel panel){
 		int i;// for index of panel
 		string s, s2;
+
 		for(i = 0; i < 9; i++)
 			if(panels[i] == panel)//to find index of input panel
 				break;

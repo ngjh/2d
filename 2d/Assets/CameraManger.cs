@@ -10,6 +10,8 @@ public class CameraManger : MonoBehaviour {
 	Camera mainCamera, storyCamera, profileCamera, cardsCamera, mainMenuCamera, loginCamera;
 
 	Canvas gameCanvas, storyCanvas, loginCanvas, mainMenuCanvas, profileCanvas, CardsCanvas, eventCanvas;
+
+	Text loginDisplayText;
 	void Start(){
 		
 		cams = Camera.allCameras;
@@ -41,22 +43,29 @@ public class CameraManger : MonoBehaviour {
 		cams[5].gameObject.SetActive (true);//mainmenucamera
 		cams[6].gameObject.SetActive (true);//logincamera
 
+		loginDisplayText = GameObject.FindWithTag ("LoginDisplayText").GetComponent<Text> ();
+
 	}
 
 	public void activateMainMenuCamera(){
-		
-		if (string.Compare (usernameField.text, "test") == 0) {
+		UserAccounts userAccount;
+		userAccount = Utility.getFromAPI<UserAccounts> (usernameField.text);
+		if (userAccount != null) {
+			if (string.Compare (usernameField.text, userAccount.getMatricNumber ()) == 0) {
 			
-			cams[5].gameObject.SetActive (true);
-			cams[6].gameObject.SetActive (false);
-		}
+				cams [5].gameObject.SetActive (true);
+				cams [6].gameObject.SetActive (false);
+				mainMenuCanvas.gameObject.SetActive (true);
+				loginCanvas.gameObject.SetActive (false);
+			} else {
+				loginDisplayText.text = "ERROR, INVALID PASSWORD";
+			}
 
-		
+		}
+		else{
+			loginDisplayText.text = "ERROR, INVALID USERNAME OR CHECK INTERNET CONNECTION";
+		}
 	}
 
-	//public void storyCamera(){
-		//cams [1].gameObject.SetActive (true);
-		//cams [2].gameObject.SetActive (false);
-		//cams [3].gameObject.SetActive (false);
-	//}
+		
 }

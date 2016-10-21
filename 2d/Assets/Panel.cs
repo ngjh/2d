@@ -10,7 +10,7 @@ public class Panel : MonoBehaviour {
 
 	Card card;
 
-	void OnEnable(){
+	/*void OnEnable(){
 		panelOccupied = false;
 		panelSelected = false;
 		panelTopValue = 0;
@@ -18,7 +18,8 @@ public class Panel : MonoBehaviour {
 		panelLeftValue = 0;
 		panelRightValue = 0;
 		panelOccupiedByPlayer = "";
-	}
+		card = null;
+	}*/
 
 	public void setPanelOccupiedP1(){
 		panelOccupiedByPlayer = "P1";
@@ -29,27 +30,38 @@ public class Panel : MonoBehaviour {
 		panelOccupiedByPlayer = "P2";
 		panelOccupied = true;
 	}
-		
 
-	public void setPanelAboveOccupied(int value){
+	public void setPanelOccupiedNoPlayers(){
+		panelOccupiedByPlayer = "";
+	}
+
+	public void setPanelAboveValue(int value){
 		panelTopValue = value;
 	}
 
-	public void setPanelBelowOccupied(int value){
+	public void setPanelBelowValue(int value){
 		panelBottomValue = value;
 	}
 
-	public void setPanelLeftOccupied(int value){
+	public void setPanelLeftValue(int value){
 		panelLeftValue = value;
 	}
 
-	public void setPanelRightOccupied(int value){
+	public void setPanelRightValue(int value){
 		panelRightValue = value;
 	}
 
 	public void setPanelSelectedStatus(){
 		
 		panelSelected = !panelOccupied;
+	}
+
+	public void setPanelOccupiedFalse(){
+		panelOccupied = false;
+	}
+
+	public void setPanelSelectedFalse(){
+		panelSelected = false;
 	}
 
 	public string getPlayerOccupyingPanel(){

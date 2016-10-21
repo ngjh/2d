@@ -11,7 +11,7 @@ public class NewBehaviourScript : MonoBehaviour {
     {
 		Debug.Log (Input.location.isEnabledByUser);
 		Debug.Log (Input.location.status);
-		button.interactable = false;
+		//button.interactable = false;
 		// First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
 			yield break;
@@ -19,10 +19,10 @@ public class NewBehaviourScript : MonoBehaviour {
         // Start service before querying location
 		Input.location.Start(1,1);
         int maxWait = 20;
-		Debug.Log (Input.location.status);
+
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
         {
-			Debug.Log (maxWait);
+			
 			yield return new WaitForSeconds(1);
 
             maxWait--;
@@ -65,15 +65,13 @@ public class NewBehaviourScript : MonoBehaviour {
 		double LTlong = 103.679718;
         double dist = DistanceBetweenPlaces(lat, len, LTlat, LTlong);
 
-		Debug.Log (Input.location.lastData.latitude);
-		Debug.Log (Input.location.lastData.longitude);
         
         if (dist <= 100)
         {
-			button.interactable = true;
+			//button.interactable = true;
         }
         else {
-			button.interactable = false;
+			//button.interactable = false;
         }
     }
     public static double Radians(double x)

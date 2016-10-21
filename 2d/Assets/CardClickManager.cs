@@ -31,7 +31,7 @@ public class CardClickManager : EventTrigger {
 
 
 		card.selectImage ();	//set selected card
-		Debug.Log( card.getImageSelectedStatus());
+		Debug.Log( card.getCardOwner());
 		if (card.getImageSelectedStatus ()) {
 			card.turnYellow ();	//visual indication of selected card
 			cardPos.setSelectedCard(card);	//tell CardPositionUpdater which card is selected

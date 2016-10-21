@@ -49,18 +49,38 @@
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardClickManager.cs" />
      <Compile Include="Assets\CardPositionUpdater.cs" />
+     <Compile Include="Assets\FBscript.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppInvites.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GameGroups.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
+     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\OptionClickManager.cs" />
      <Compile Include="Assets\Panel.cs" />
      <Compile Include="Assets\PanelClickManager.cs" />
      <Compile Include="Assets\PanelUpdater.cs" />
      <Compile Include="Assets\ProgressBarUpdater.cs" />
+     <Compile Include="Assets\QuestionManager.cs" />
+     <Compile Include="Assets\Questions.cs" />
      <Compile Include="Assets\ScrollBarValueChanger.cs" />
      <Compile Include="Assets\TurnManager.cs" />
+     <Compile Include="Assets\UserAccount.cs" />
+     <Compile Include="Assets\Utility.cs" />
      <Compile Include="Assets\WinLossManager.cs" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\ColorfulButtons\Credits.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -70,6 +90,12 @@
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>D:/Program Files/Unity3D/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Facebook.Unity">
+ <HintPath>C:/Users/JHNG/Documents/Unity3D/2d/2d/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="Facebook.Unity.IOS">
+ <HintPath>C:/Users/JHNG/Documents/Unity3D/2d/2d/Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

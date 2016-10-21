@@ -21,3 +21,5 @@ C:\Users\JHNG\Documents\Unity3D\2d\2d\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\JHNG\Documents\Unity3D\2d\2d\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\JHNG\Documents\Unity3D\2d\2d\obj\Debug\Assembly-CSharp.dll
 C:\Users\JHNG\Documents\Unity3D\2d\2d\obj\Debug\Assembly-CSharp.pdb
+C:\Users\JHNG\Documents\Unity3D\2d\2d\Temp\bin\Debug\Facebook.Unity.dll
+C:\Users\JHNG\Documents\Unity3D\2d\2d\Temp\bin\Debug\Facebook.Unity.IOS.dll

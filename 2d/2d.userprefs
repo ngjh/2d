@@ -1,19 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\NewBehaviourScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OptionClickManager.cs">
     <Files>
-      <File FileName="Assets\Card.cs" Line="1" Column="1" />
-      <File FileName="Assets\Panel.cs" Line="1" Column="1" />
-      <File FileName="Assets\CardPositionUpdater.cs" Line="1" Column="1" />
-      <File FileName="Assets\PanelUpdater.cs" Line="1" Column="1" />
-      <File FileName="Assets\PanelClickManager.cs" Line="1" Column="1" />
       <File FileName="Assets\CardClickManager.cs" Line="1" Column="1" />
       <File FileName="Assets\TurnManager.cs" Line="1" Column="1" />
       <File FileName="Assets\WinLossManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\CameraManger.cs" Line="34" Column="43" />
-      <File FileName="Assets\ProgressBarUpdater.cs" Line="1" Column="1" />
+      <File FileName="Assets\CameraManger.cs" Line="1" Column="1" />
       <File FileName="Assets\ScrollBarValueChanger.cs" Line="1" Column="1" />
-      <File FileName="Assets\NewBehaviourScript.cs" Line="12" Column="44" />
+      <File FileName="Assets\NewBehaviourScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\FBscript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Utility.cs" Line="1" Column="1" />
+      <File FileName="Assets\UserAccount.cs" Line="1" Column="1" />
+      <File FileName="Assets\QuestionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Questions.cs" Line="1" Column="1" />
+      <File FileName="Assets\Card.cs" Line="1" Column="1" />
+      <File FileName="Assets\OptionClickManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

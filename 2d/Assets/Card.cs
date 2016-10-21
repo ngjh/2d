@@ -8,7 +8,7 @@ public class Card : MonoBehaviour {
 	Text  txt;
 	Image image ;
 	bool selected = false;
-	bool moveable = true;
+	bool moveable = false;
 	bool initialised = false;
 	int topValue, botValue, leftValue, rightValue;
 
@@ -38,9 +38,6 @@ public class Card : MonoBehaviour {
 	void OnEnable(){
 		if (initialised) {
 			image.transform.position = cardVectorPos;
-			selected = false;
-			moveable = true;
-			cardOwner = "";
 		}
 	}
 

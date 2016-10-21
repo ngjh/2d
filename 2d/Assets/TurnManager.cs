@@ -12,15 +12,18 @@ public class TurnManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cards = GetComponentsInChildren<Card> ();
-
+		p1Turn = true;
+		p2Turn = false;
 		for (int i = 0; i < 5; i++) {
 			cards [i].setCardOwner ("P1");
 			cards [i].turnBlue ();
+			cards [i].setImageSelectedToFalse ();
 		}
 			
 		for (int i = 5; i < 10; i++) {
 			cards [i].setCardOwner ("P2");
 			cards [i].turnRed ();
+			cards [i].setImageSelectedToFalse ();
 		}
 		setCardsNotMoveable ();	
 		initialised = true;
@@ -31,14 +34,20 @@ public class TurnManager : MonoBehaviour {
 		if (initialised) {
 			p1Turn = true;
 			p2Turn = false;
+			cards = GetComponentsInChildren<Card> ();
+
 			for (int i = 0; i < 5; i++) {
+				
 				cards [i].setCardOwner ("P1");
 				cards [i].turnBlue ();
+				cards [i].setImageSelectedToFalse ();
 			}
 
 			for (int i = 5; i < 10; i++) {
+				
 				cards [i].setCardOwner ("P2");
 				cards [i].turnRed ();
+				cards [i].setImageSelectedToFalse ();
 			}
 			setCardsNotMoveable ();
 		}

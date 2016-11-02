@@ -7,11 +7,17 @@ public class QuestionManager : MonoBehaviour {
 	Text questionText, option1Text, option2Text, option3Text, option4Text;
 	bool questionAnswered = false, answeredCorrectly = false;
 	string correctAnswer;
+	string matricNumber;
+	string questionID;
+	string userAnswer;
+	AnsweredCorrectlyArray ac;
+	AnsweredCorrectlyData[] acd;
+
 	void OnEnable(){
 		questionAnswered = false;
 		answeredCorrectly = false;
-
-		questions = Utility.getFromAPI<Questions> (Random.Range (1, 11).ToString ());
+		questionID = Random.Range (1, 11).ToString ();
+		questions = Utility.getFromAPI<Questions> (questionID);
 		if (questions != null) {
 			questionText = GameObject.FindWithTag ("QuestionText").GetComponent<Text> ();
 			option1Text = GameObject.FindWithTag ("Option1Text").GetComponent<Text> ();
@@ -51,5 +57,47 @@ public class QuestionManager : MonoBehaviour {
 
 	public void setAnsweredCorrectly(){
 		answeredCorrectly = true;
+	}
+
+	public void setUserAnswer(string ans){
+		if (string.Compare (ans, questions.A) == 0)
+			userAnswer = "A";
+		else if (string.Compare (ans, questions.B) == 0)
+			userAnswer = "B";
+		else if (string.Compare (ans, questions.C) == 0)
+			userAnswer = "C";
+		else
+			userAnswer = "D";
+	}
+
+	public void updateDatabase(){
+
+		Answers ad = new Answers();
+		ad.MatricNumber = matricNumber;
+		ad.QuestionID = questionID;
+		ad.UserAnswer = userAnswer;
+
+		bool succ = Utility.postToAPI<Answers> (ad);
+
+
+		/*string json = Utility.getArrayFromAPI ("AnsweredCorrectly");
+
+		ac = JsonUtility.FromJson<AnsweredCorrectlyArray> (json);
+		acd = ac.AnsweredCorrectly;
+
+		for(int i = 0 ; i < ac.AnsweredCorrectly.Length; i ++) {
+			if (string.Compare (ac.AnsweredCorrectly[i].MatricNumber, matricNumber) == 0) {
+				int temp = int.Parse(ac.AnsweredCorrectly[i].NumCorrectAnswers) + 1;
+				ac.AnsweredCorrectly [i].NumCorrectAnswers = temp.ToString ();
+				Debug.Log (ac.AnsweredCorrectly [i].NumCorrectAnswers);
+				bool succ = Utility.postArrayToAPI<AnsweredCorrectlyArray> ("AnsweredCorrectly" ,ac);
+				Debug.Log ("QUESTION: " + succ);
+				break;
+			}
+		}*/
+	}
+
+	public void setMatricNumber(string matricNumber){
+		this.matricNumber = matricNumber;
 	}
 }

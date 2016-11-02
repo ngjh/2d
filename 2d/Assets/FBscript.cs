@@ -22,8 +22,8 @@ public class FBscript : MonoBehaviour {
 		mainMenuCanvas = GameObject.FindWithTag ("MainMenuCanvas").GetComponent<Canvas> ();
 		loginCanvas = GameObject.FindWithTag ("LoginCanvas").GetComponent<Canvas> ();
 		cams = Camera.allCameras;
-		mainMenuCamera = cams [5];
-		loginCamera = cams [6];
+		mainMenuCamera = cams [6];
+		loginCamera = cams [7];
 		if (!FB.IsInitialized) {
 			// Initialize the Facebook SDK
 			FB.Init (InitCallback, OnHideUnity);
@@ -126,6 +126,26 @@ public class FBscript : MonoBehaviour {
 
 			ProfilePic.sprite = Sprite.Create (result.Texture, new Rect (0, 0, 128, 128), new Vector2 ());
 		}
+	}
+
+	public void FBShare() {
+		FB.ShareLink (
+			contentTitle:"GoodGame message",
+			contentURL:new System.Uri("http://google.com"),
+			contentDescription: "Here is a link to the website",
+			callback:OnShare
+		);
+	}	
+
+	void OnShare(IShareResult result) {
+		if (result.Cancelled || !string.IsNullOrEmpty (result.Error)) {
+			Debug.Log ("SharedLink error: " + result.Error);
+		} 
+		else if (!string.IsNullOrEmpty(result.PostId)) {
+			Debug.Log (result.PostId);
+		}
+		else 
+			Debug.Log("SHARE succeeded");
 	}
 }
 

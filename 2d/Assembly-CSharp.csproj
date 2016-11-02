@@ -45,10 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AllCards.cs" />
+     <Compile Include="Assets\AnsweredCorrectly.cs" />
+     <Compile Include="Assets\AnswersArray.cs" />
+     <Compile Include="Assets\CCSelectionScript.cs" />
      <Compile Include="Assets\CameraManger.cs" />
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardClickManager.cs" />
      <Compile Include="Assets\CardPositionUpdater.cs" />
+     <Compile Include="Assets\CardsOwnedArray.cs" />
      <Compile Include="Assets\FBscript.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
@@ -67,6 +72,8 @@
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+     <Compile Include="Assets\LeaderboardManager.cs" />
+     <Compile Include="Assets\MiniJSON.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\OptionClickManager.cs" />
      <Compile Include="Assets\Panel.cs" />
@@ -76,8 +83,11 @@
      <Compile Include="Assets\QuestionManager.cs" />
      <Compile Include="Assets\Questions.cs" />
      <Compile Include="Assets\ScrollBarValueChanger.cs" />
+     <Compile Include="Assets\SetDeckScript.cs" />
+     <Compile Include="Assets\SubmitScript.cs" />
      <Compile Include="Assets\TurnManager.cs" />
      <Compile Include="Assets\UserAccount.cs" />
+     <Compile Include="Assets\UserCardCollectionMgr.cs" />
      <Compile Include="Assets\Utility.cs" />
      <Compile Include="Assets\WinLossManager.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -96,6 +106,12 @@
  </Reference>
  <Reference Include="Facebook.Unity.IOS">
  <HintPath>C:/Users/JHNG/Documents/Unity3D/2d/2d/Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll</HintPath>
+ </Reference>
+ <Reference Include="JsonFx.Json">
+ <HintPath>C:/Users/JHNG/Documents/Unity3D/2d/2d/Assets/Plugins/JsonFx.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="Pathfinding.JsonFx">
+ <HintPath>C:/Users/JHNG/Documents/Unity3D/2d/2d/Assets/Plugins/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

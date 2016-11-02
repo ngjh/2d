@@ -10,7 +10,7 @@ public class Card : MonoBehaviour {
 	bool selected = false;
 	bool moveable = false;
 	bool initialised = false;
-	int topValue, botValue, leftValue, rightValue;
+	int topValue = 0, botValue = 0, leftValue = 0, rightValue = 0;
 
 	string cardOwner;
 
@@ -21,16 +21,6 @@ public class Card : MonoBehaviour {
 		image = GetComponent<Image>();
 		displayedValue = GetComponentsInChildren<Text> ();
 
-		topValue = Random.Range (1, 10);
-		leftValue = Random.Range (1, 10);
-		rightValue = Random.Range (1, 10);
-		botValue = Random.Range (1, 10);
-
-		displayedValue [0].text = topValue.ToString ();
-		displayedValue [1].text = leftValue.ToString ();
-		displayedValue [2].text = rightValue.ToString ();
-		displayedValue [3].text = botValue.ToString ();
-
 		cardVectorPos = image.transform.position;
 		initialised = true;
 	}
@@ -39,6 +29,7 @@ public class Card : MonoBehaviour {
 		if (initialised) {
 			image.transform.position = cardVectorPos;
 		}
+
 	}
 
 	// Update is called once per frame
@@ -66,6 +57,20 @@ public class Card : MonoBehaviour {
 	}
 	public int getCardRightValue(){
 		return rightValue;
+	}
+
+	public void setCardTopValue(int topValue){
+		this.topValue = topValue;
+	}
+
+	public void setCardBotValue(int botValue){
+		this.botValue = botValue;
+	}
+	public void setCardLeftValue(int leftValue){
+		this.leftValue = leftValue;
+	}
+	public void setCardRightValue(int rightValue){
+		this.rightValue = rightValue;
 	}
 
 
@@ -117,5 +122,12 @@ public class Card : MonoBehaviour {
 
 	public bool getMoveableStatus(){
 		return moveable;
+	}
+
+	public void updateText(){
+		displayedValue [0].text = topValue.ToString ();
+		displayedValue [1].text = leftValue.ToString ();
+		displayedValue [2].text = rightValue.ToString ();
+		displayedValue [3].text = botValue.ToString ();
 	}
 }

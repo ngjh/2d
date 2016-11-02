@@ -1,20 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OptionClickManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\LeaderboardManager.cs">
     <Files>
-      <File FileName="Assets\CardClickManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\TurnManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\WinLossManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\CameraManger.cs" Line="1" Column="1" />
-      <File FileName="Assets\ScrollBarValueChanger.cs" Line="1" Column="1" />
-      <File FileName="Assets\NewBehaviourScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\FBscript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Utility.cs" Line="1" Column="1" />
+      <File FileName="Assets\CameraManger.cs" Line="71" Column="53" />
       <File FileName="Assets\UserAccount.cs" Line="1" Column="1" />
-      <File FileName="Assets\QuestionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Questions.cs" Line="1" Column="1" />
-      <File FileName="Assets\Card.cs" Line="1" Column="1" />
-      <File FileName="Assets\OptionClickManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\LeaderboardManager.cs" Line="18" Column="45" />
+      <File FileName="Assets\SubmitScript.cs" Line="8" Column="62" />
+      <File FileName="Assets\AnsweredCorrectly.cs" Line="10" Column="2" />
+      <File FileName="Assets\Utility.cs" Line="83" Column="1" />
+      <File FileName="Assets\CardsOwnedArray.cs" Line="11" Column="20" />
+      <File FileName="Assets\AllCards.cs" Line="6" Column="9" />
+      <File FileName="Assets\UserCardCollectionMgr.cs" Line="17" Column="45" />
+      <File FileName="Assets\OptionClickManager.cs" Line="32" Column="28" />
+      <File FileName="Assets\QuestionManager.cs" Line="82" Column="3" />
+      <File FileName="Assets\AnswersArray.cs" Line="11" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

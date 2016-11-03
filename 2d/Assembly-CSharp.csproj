@@ -49,7 +49,6 @@
      <Compile Include="Assets\AnsweredCorrectly.cs" />
      <Compile Include="Assets\AnswersArray.cs" />
      <Compile Include="Assets\CCSelectionScript.cs" />
-     <Compile Include="Assets\CameraManger.cs" />
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardClickManager.cs" />
      <Compile Include="Assets\CardPositionUpdater.cs" />
@@ -72,13 +71,14 @@
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+     <Compile Include="Assets\GPSManager.cs" />
      <Compile Include="Assets\LeaderboardManager.cs" />
-     <Compile Include="Assets\MiniJSON.cs" />
-     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\LoginManager.cs" />
      <Compile Include="Assets\OptionClickManager.cs" />
      <Compile Include="Assets\Panel.cs" />
      <Compile Include="Assets\PanelClickManager.cs" />
      <Compile Include="Assets\PanelUpdater.cs" />
+     <Compile Include="Assets\ProfileManager.cs" />
      <Compile Include="Assets\ProgressBarUpdater.cs" />
      <Compile Include="Assets\QuestionManager.cs" />
      <Compile Include="Assets\Questions.cs" />
@@ -87,6 +87,7 @@
      <Compile Include="Assets\SubmitScript.cs" />
      <Compile Include="Assets\TurnManager.cs" />
      <Compile Include="Assets\UserAccount.cs" />
+     <Compile Include="Assets\UserAccountholder.cs" />
      <Compile Include="Assets\UserCardCollectionMgr.cs" />
      <Compile Include="Assets\Utility.cs" />
      <Compile Include="Assets\WinLossManager.cs" />

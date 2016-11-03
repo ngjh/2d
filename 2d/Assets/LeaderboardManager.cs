@@ -9,15 +9,18 @@ public class LeaderboardManager : MonoBehaviour {
 	AnsweredCorrectlyArray ac;
 	AnsweredCorrectlyData[] acd;
 	GameObject leaderboardEntry;
-	bool displayed = false;
 
-	List<GameObject> gameObjectList;
+
+
 
 	public void displayEntries(){
-		if (gameObjectList == null)
-			gameObjectList = new List<GameObject> ();
-		if (!displayed) {
-			//string returnedText = Utility.getArrayFromAPI<AnsweredCorrectly> ();
+
+		foreach (Transform childTransform in LeaderboardGrid.transform)//clear all cards being displayed
+			Destroy (childTransform.gameObject);
+
+
+		//if (!displayed) {
+			
 			string json = Utility.getArrayFromAPI ("AnsweredCorrectly");
 
 			ac = JsonUtility.FromJson<AnsweredCorrectlyArray> (json);
@@ -37,9 +40,32 @@ public class LeaderboardManager : MonoBehaviour {
 				nameText.text = a.MatricNumber;
 				scoreText.text = a.NumCorrectAnswers;
 
-				gameObjectList.Add (leaderboardEntry);
+				
 			}
-			displayed = true;
-		}
+
+
+			//updateEntries ();
+
 	}
+
+	/*private void updateEntries(){
+		string json = Utility.getArrayFromAPI ("AnsweredCorrectly");
+		ac = JsonUtility.FromJson<AnsweredCorrectlyArray> (json);
+		acd = ac.AnsweredCorrectly;
+
+		foreach (GameObject lbEntry in gameObjectList) {
+			 
+			Transform thisNameText = lbEntry.transform.Find ("LeaderboardNameText");
+			Text nameText = thisNameText.GetComponent<Text> ();
+			Transform thisScoreText = lbEntry.transform.Find ("LeaderboardScoreText");
+			Text scoreText = thisScoreText.GetComponent<Text> ();
+			foreach (AnsweredCorrectlyData a in acd){
+				if (string.Compare (nameText.text, a.MatricNumber) == 0) {
+					nameText.text = a.MatricNumber;
+					scoreText.text = a.NumCorrectAnswers;
+				}
+			}
+		}
+		 
+	}*/
 }

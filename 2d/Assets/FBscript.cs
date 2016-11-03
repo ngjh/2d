@@ -102,6 +102,7 @@ public class FBscript : MonoBehaviour {
 
 			FB.API ("/me?fields=first_name", HttpMethod.GET, DisplayUsername);
 			FB.API ("/me/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
+			FB.API("/me?fields=id",HttpMethod.GET, DisplayID);
 
 		} else {
 			//DialogLoggedIn.SetActive (false);
@@ -125,6 +126,14 @@ public class FBscript : MonoBehaviour {
 			
 
 			ProfilePic.sprite = Sprite.Create (result.Texture, new Rect (0, 0, 128, 128), new Vector2 ());
+		}
+	}
+
+	void DisplayID(IResult result){
+		if (result.Error == null) {
+			Debug.Log (result.ResultDictionary ["id"].ToString ());
+		} else {
+			Debug.Log (result.Error);
 		}
 	}
 

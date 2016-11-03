@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class CameraManger : MonoBehaviour {
+public class LoginManager : MonoBehaviour {
 
 	// Use this for initialization
 	Camera[] cams;
@@ -23,7 +23,7 @@ public class CameraManger : MonoBehaviour {
 		Debug.Log (cams.Length);
 		ucm = GameObject.FindWithTag ("MainMenuCardsButton").GetComponent<UserCardCollectionMgr> ();
 		usernameField = GameObject.FindWithTag("UsernameField").GetComponent<InputField>();
-		profileName = GameObject.FindWithTag ("ProfileName").GetComponent<Text> ();
+		//profileName = GameObject.FindWithTag ("ProfileName").GetComponent<Text> ();
 
 		gameCanvas = GameObject.FindWithTag ("GameCanvas").GetComponent<Canvas> ();
 		storyCanvas = GameObject.FindWithTag ("StoryCanvas").GetComponent<Canvas> ();
@@ -60,16 +60,16 @@ public class CameraManger : MonoBehaviour {
 
 	}
 
-	public void activateMainMenuCamera(){
+	public void login(){
 		UserAccounts userAccount;
 		userAccount = Utility.getFromAPI<UserAccounts> (usernameField.text);
 
 		if (userAccount != null) {
 			if (string.Compare (usernameField.text, userAccount.getMatricNumber ()) == 0) {
-				
-				ucm.setMatricNumber (userAccount.MatricNumber);
-				qmgr.setMatricNumber (userAccount.MatricNumber);
-				profileName.text = userAccount.FirstName;
+				UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+				ua.ua = userAccount;
+
+				//profileName.text = userAccount.FirstName;
 				cams [6].gameObject.SetActive (true);
 				cams [7].gameObject.SetActive (false);
 				mainMenuCanvas.gameObject.SetActive (true);

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class GPSManager : MonoBehaviour {
     
 	public Button button;
 

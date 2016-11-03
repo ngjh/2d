@@ -35,6 +35,10 @@ public class QuestionManager : MonoBehaviour {
 			questionText = GameObject.FindWithTag ("QuestionText").GetComponent<Text> ();
 			questionText.text = "ERROR, CHECK INTERNET CONNECTION";
 		}
+
+		UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+		if(ua.ua != null)
+			matricNumber = ua.ua.MatricNumber;
 	}
 
 	public string getCorrectAnswer(){
@@ -57,6 +61,8 @@ public class QuestionManager : MonoBehaviour {
 
 	public void setAnsweredCorrectly(){
 		answeredCorrectly = true;
+		bool succ = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (matricNumber, "12"));
+		Debug.Log ("card update: " + succ);
 	}
 
 	public void setUserAnswer(string ans){

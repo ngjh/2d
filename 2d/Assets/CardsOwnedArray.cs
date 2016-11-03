@@ -9,4 +9,9 @@ public class CardsOwnedArray {
 public class CardsOwnedData{
 	public string MatricNumber;
 	public string CardID;
+
+	public CardsOwnedData(string MatricNumber, string CardID){
+		this.MatricNumber = MatricNumber;
+		this.CardID = CardID;
+	}
 }

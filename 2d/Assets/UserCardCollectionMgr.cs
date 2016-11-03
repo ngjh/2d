@@ -7,16 +7,21 @@ public class UserCardCollectionMgr : MonoBehaviour {
 	public GameObject cardGrid, card;
 	GameObject cardInstance;
 
-	List<GameObject> gameObjectList;
+
 
 	string matricNumber;
 
-	bool displayed = false;
-	public void displayCards(){
-		if (gameObjectList == null)
-			gameObjectList = new List<GameObject> ();
 
-		if (!displayed) {
+	public void displayCards(){
+		
+		foreach (Transform childTransform in cardGrid.transform)//clear all cards being displayed
+			Destroy (childTransform.gameObject);
+		
+		UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+		matricNumber = ua.ua.MatricNumber;
+
+
+
 
 			string json = Utility.getArrayFromAPI ("Cards");
 			string cardsOwnedJSON = Utility.getArrayFromAPI ("CardsOwned");
@@ -57,17 +62,19 @@ public class UserCardCollectionMgr : MonoBehaviour {
 							leftValueText.text = cd.LeftValue;
 							rightValueText.text = cd.RightValue;
 
-							gameObjectList.Add (cardInstance);
+							
 						}
 					}
 				}
 
 			}
 
-			displayed = true;
-		}
+			
+		
 
 	}
+
+
 
 	public void setMatricNumber(string matricNumber){
 		this.matricNumber = matricNumber;

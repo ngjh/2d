@@ -13,17 +13,23 @@ public class FBscript : MonoBehaviour {
 	Camera[] cams;
 	Canvas mainMenuCanvas, loginCanvas;
 	Camera mainMenuCamera, loginCamera;
-	Text Username;
+	Text Username, loginDisplayText;
 	Image ProfilePic;
+	InputField usernameField;
+
+	string firstName, lastName, fbID, matricNumber;
 	void Awake ()
 	{
+		loginDisplayText = GameObject.FindWithTag ("LoginDisplayText").GetComponent<Text> ();
+		usernameField = GameObject.FindWithTag("UsernameField").GetComponent<InputField>();
 		Username = GameObject.FindWithTag("ProfileName").GetComponent<Text>();
 		ProfilePic = GameObject.FindWithTag("ProfileImage").GetComponent<Image> ();
 		mainMenuCanvas = GameObject.FindWithTag ("MainMenuCanvas").GetComponent<Canvas> ();
 		loginCanvas = GameObject.FindWithTag ("LoginCanvas").GetComponent<Canvas> ();
 		cams = Camera.allCameras;
-		mainMenuCamera = cams [6];
-		loginCamera = cams [7];
+		mainMenuCamera = cams [10];
+		loginCamera = cams [11];
+
 		if (!FB.IsInitialized) {
 			// Initialize the Facebook SDK
 			FB.Init (InitCallback, OnHideUnity);
@@ -71,8 +77,72 @@ public class FBscript : MonoBehaviour {
 	// On Facebook login button 
 	public void FBLogin() {
 		List<string> perms = new List<string> (){"public_profile, email"};
+		matricNumber = usernameField.text;
+		if (string.Compare (matricNumber, null) == 0) {
+			loginDisplayText.text = "Please enter your matric number";
+		} else {
+			
+			UserAccounts userAccount = Utility.getFromAPI<UserAccounts> (matricNumber);
+			if(userAccount == null){
+				FB.LogInWithReadPermissions (perms, AuthCallbackWithAccountCreation);
 
-		FB.LogInWithReadPermissions(perms, AuthCallback);
+					
+			}
+			else{
+				FB.LogInWithReadPermissions (perms, AuthCallback);
+				UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+				ua.ua = userAccount;
+			}
+
+		}
+	}
+
+	private IEnumerator createAccount(){
+
+		while (firstName == null && lastName == null && fbID == null) {
+			yield return new WaitForSeconds(1);
+		}
+		UserAccounts userAccount = new UserAccounts(matricNumber, "facebook", firstName,lastName,
+			System.DateTime.Now.ToString(), fbID);
+		bool succ = Utility.postToAPI<UserAccounts> (userAccount);
+		if(succ){
+			Debug.Log("FB ACC creation Successfull");
+			UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+			for(int i = 1; i <= 5; i ++){
+				bool cardCreationSuccess = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (matricNumber, i.ToString()));
+				if(!cardCreationSuccess)
+					i--;
+				if(i < 0)
+					i = 0;
+			}
+			ua.ua = userAccount;
+		}
+		else{
+			mainMenuCanvas.gameObject.SetActive (false);
+			mainMenuCamera.gameObject.SetActive (false);
+			loginCamera.gameObject.SetActive (true);
+			loginCanvas.gameObject.SetActive (true);
+		}
+	}
+
+	private void AuthCallbackWithAccountCreation (ILoginResult result) {
+		if (result.Error != null) {
+			Debug.Log ("This is an error message");
+			Debug.Log (result.Error);
+		} else {
+			if (FB.IsLoggedIn) {
+				Debug.Log ("FB is Logged In");
+
+				mainMenuCanvas.gameObject.SetActive (true);
+				mainMenuCamera.gameObject.SetActive (true);
+				loginCamera.gameObject.SetActive (false);
+				loginCanvas.gameObject.SetActive (false);
+			} else {				
+				Debug.Log ("FB is not Logged In");
+			}
+			StartCoroutine (createAccount ());
+			DealWithFBMenus (FB.IsLoggedIn);
+		}
 	}
 
 	private void AuthCallback (ILoginResult result) {
@@ -101,6 +171,7 @@ public class FBscript : MonoBehaviour {
 			//DialogLoggedOut.SetActive (false);
 
 			FB.API ("/me?fields=first_name", HttpMethod.GET, DisplayUsername);
+			FB.API ("/me?fields=last_name", HttpMethod.GET, DisplayLastname);
 			FB.API ("/me/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
 			FB.API("/me?fields=id",HttpMethod.GET, DisplayID);
 
@@ -115,7 +186,18 @@ public class FBscript : MonoBehaviour {
 
 		if (result.Error == null) {
 			Username.text = result.ResultDictionary ["first_name"].ToString();
+			firstName = result.ResultDictionary ["first_name"].ToString();;
+		} else {
+			Debug.Log (result.Error);
+		}
+	}
 
+	void DisplayLastname(IResult result) {
+
+
+		if (result.Error == null) {
+			Username.text = result.ResultDictionary ["last_name"].ToString();
+			lastName = result.ResultDictionary ["last_name"].ToString();
 		} else {
 			Debug.Log (result.Error);
 		}
@@ -132,6 +214,7 @@ public class FBscript : MonoBehaviour {
 	void DisplayID(IResult result){
 		if (result.Error == null) {
 			Debug.Log (result.ResultDictionary ["id"].ToString ());
+			fbID = result.ResultDictionary ["id"].ToString ();
 		} else {
 			Debug.Log (result.Error);
 		}

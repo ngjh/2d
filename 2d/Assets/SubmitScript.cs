@@ -18,8 +18,16 @@ public class SubmitScript : EventTrigger {
 				System.DateTime.Now.ToString (), "0");
 			bool succ = Utility.postToAPI<UserAccounts> (ua);
 			Debug.Log (succ);
-			if(succ)
+			if (succ) {
 				signUpDisplayText.text = "Account created successfully!";
+				for(int i = 1; i <= 5; i ++){
+					bool cardCreationSuccess = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (usernameText.text, i.ToString()));
+					if(!cardCreationSuccess)
+						i--;
+					if(i < 0)
+						i = 0;
+				}
+			}
 			else
 				signUpDisplayText.text = "Account creation failed!";
 		} 

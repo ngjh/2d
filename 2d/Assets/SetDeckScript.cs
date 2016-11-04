@@ -2,8 +2,10 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine.UI;
 public class SetDeckScript : EventTrigger {
 	List<CardsData> cardsDataList;
+	Text displayText;
 	Card card0, card1, card2, card3, card4, card5, card6, card7, card8, card9;
 	void Start(){
 		card0 = GameObject.FindWithTag ("Card0").GetComponent<Card> ();
@@ -17,12 +19,25 @@ public class SetDeckScript : EventTrigger {
 		card7 = GameObject.FindWithTag ("Card7").GetComponent<Card> ();
 		card8 = GameObject.FindWithTag ("Card8").GetComponent<Card> ();
 		card9 = GameObject.FindWithTag ("Card9").GetComponent<Card> ();
+		displayText = GameObject.FindWithTag("CCDisplayText").GetComponent<Text>();
 	}
 
-
+	void OnEnable(){
+		if(displayText != null)
+			displayText.text = "";
+	}
 	public override void OnPointerClick( PointerEventData data ){
 		
-
+		if (cardsDataList == null) {
+			displayText.text = "Please select at exactly 5 cards";
+			return;
+		}
+		
+		if (cardsDataList.Count < 5) {
+			displayText.text = "Please select at exactly 5 cards";
+			return;
+		}
+			
 		card0.setCardTopValue (int.Parse(cardsDataList[0].TopValue));
 		card0.setCardBotValue (int.Parse(cardsDataList[0].BotValue));
 		card0.setCardLeftValue (int.Parse(cardsDataList[0].LeftValue));
@@ -82,6 +97,8 @@ public class SetDeckScript : EventTrigger {
 		card9.setCardLeftValue (Random.Range(1,10));
 		card9.setCardRightValue (Random.Range(1,10));
 		card9.updateText ();
+
+		displayText.text = "Deck has been set!";
 	
 	}
 

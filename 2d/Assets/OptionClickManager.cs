@@ -12,11 +12,12 @@ public class OptionClickManager : EventTrigger {
 
 
 	public override void OnPointerClick(PointerEventData data){
+		Text displayText = GameObject.FindWithTag ("CorrectWrongDisplayText").GetComponent<Text> ();
 		button = GetComponent<Button> ();
 		qmgr = GetComponentInParent<QuestionManager> ();
 		optionText = button.GetComponentInChildren<Text> ();
 		if (qmgr.getQuestionAnswered ()) {
-			Debug.Log ("Question Answered");
+			displayText.text = "Question already answered!";
 		} 
 		else {
 			if (string.Compare (qmgr.getCorrectAnswer (), optionText.text) == 0) {
@@ -25,12 +26,12 @@ public class OptionClickManager : EventTrigger {
 
 				qmgr.setUserAnswer (optionText.text);
 				qmgr.updateDatabase ();
-				Debug.Log ("Correct");
+				displayText.text = "Correct answer! You have gained a card";
 			} else {
 				qmgr.setQuestionAnswered ();
 				qmgr.setUserAnswer (optionText.text);
 				qmgr.updateDatabase ();
-				Debug.Log ("Wrong");
+				displayText.text = "Wrong answer";
 			}
 				
 		}

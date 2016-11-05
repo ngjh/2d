@@ -5,8 +5,8 @@ public class LoadFriendsScrpt : MonoBehaviour {
 
 	// Use this for initialization
 	public GameObject FriendListEntry, FriendListGrid;
-	AnsweredCorrectlyArray ac;
-	AnsweredCorrectlyData[] acd;
+	FriendsArray friendsArray;
+	FriendsData[] friendsData;
 	GameObject friendListEntry;
 
 
@@ -22,20 +22,31 @@ public class LoadFriendsScrpt : MonoBehaviour {
 
 		string json = Utility.getArrayFromAPI ("Friends");
 
-		ac = JsonUtility.FromJson<AnsweredCorrectlyArray> (json);
-		acd = ac.AnsweredCorrectly;
+		friendsArray = JsonUtility.FromJson<FriendsArray> (json);
+		friendsData = friendsArray.Friends;
 
-		foreach (AnsweredCorrectlyData a in acd) {
+		UserAccountholder uah = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+		string matricNumber = uah.ua.MatricNumber;
 
-			friendListEntry = Instantiate (FriendListEntry) as GameObject;
+		foreach (FriendsData fd in friendsData) {
 
-			friendListEntry.transform.SetParent (FriendListGrid.transform, false);
+			if (string.Compare (matricNumber, fd.MatricFriendee) == 0) {
+				friendListEntry = Instantiate (FriendListEntry) as GameObject;
 
-			Transform thisNameText = friendListEntry.transform.Find ("FriendEntryText");
-			Text nameText = thisNameText.GetComponent<Text> ();
+				friendListEntry.transform.SetParent (FriendListGrid.transform, false);
 
+				Transform thisNameText = friendListEntry.transform.Find ("FriendEntryText");
+				Text nameText = thisNameText.GetComponent<Text> ();
+				nameText.text = fd.MatricFriender;
+			} else if (string.Compare (matricNumber, fd.MatricFriender) == 0) {
+				friendListEntry = Instantiate (FriendListEntry) as GameObject;
 
-			nameText.text = a.MatricNumber;
+				friendListEntry.transform.SetParent (FriendListGrid.transform, false);
+
+				Transform thisNameText = friendListEntry.transform.Find ("FriendEntryText");
+				Text nameText = thisNameText.GetComponent<Text> ();
+				nameText.text = fd.MatricFriendee;
+			}
 
 
 

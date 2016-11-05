@@ -20,6 +20,22 @@ public class SubmitScript : EventTrigger {
 			Debug.Log (succ);
 			if (succ) {
 				signUpDisplayText.text = "Account created successfully!";
+
+				AnsweredCorrectlyData acd = new AnsweredCorrectlyData ();
+				acd.MatricNumber = ua.MatricNumber;
+				acd.NumCorrectAnswers = "0";
+				bool answeredCorrectCreationSuccess = Utility.postArrayToAPI ("AnsweredCorrectly", acd);
+
+				Achievements achiev = new Achievements ();
+				achiev.MatricNumber = ua.MatricNumber;
+				achiev.CardsObtained = "0";
+				achiev.EventsAttended = "0";
+				achiev.MaxRarity = "Common";
+				achiev.PvPWins = "0";
+				achiev.QuestionsAnswered = "0";
+
+				bool achieveCreationSuccess = Utility.postToAPI<Achievements> (achiev);
+
 				for(int i = 1; i <= 5; i ++){
 					bool cardCreationSuccess = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (usernameText.text, i.ToString()));
 					if(!cardCreationSuccess)

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AchievementDisplayScript.cs" />
+     <Compile Include="Assets\AddFriendsScript.cs" />
      <Compile Include="Assets\AllCards.cs" />
      <Compile Include="Assets\AnsweredCorrectly.cs" />
      <Compile Include="Assets\AnswersArray.cs" />
@@ -54,6 +55,8 @@
      <Compile Include="Assets\CardClickManager.cs" />
      <Compile Include="Assets\CardPositionUpdater.cs" />
      <Compile Include="Assets\CardsOwnedArray.cs" />
+     <Compile Include="Assets\ChallengeScript.cs" />
+     <Compile Include="Assets\EnableSharingScript.cs" />
      <Compile Include="Assets\FBscript.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
@@ -72,6 +75,8 @@
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+     <Compile Include="Assets\FriendSelectionScript.cs" />
+     <Compile Include="Assets\FriendsArray.cs" />
      <Compile Include="Assets\GPSManager.cs" />
      <Compile Include="Assets\LeaderboardManager.cs" />
      <Compile Include="Assets\LoadFriendsScrpt.cs" />

@@ -107,7 +107,22 @@ public class FBscript : MonoBehaviour {
 		bool succ = Utility.postToAPI<UserAccounts> (userAccount);
 		if(succ){
 			Debug.Log("FB ACC creation Successfull");
+
+			AnsweredCorrectlyData acd = new AnsweredCorrectlyData ();
+			acd.MatricNumber = matricNumber;
+			acd.NumCorrectAnswers = "0";
+			bool answeredCorrectCreationSuccess = Utility.postArrayToAPI ("AnsweredCorrectly", acd);
+
 			UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
+			Achievements achiev = new Achievements ();
+			achiev.MatricNumber = matricNumber;
+			achiev.CardsObtained = "0";
+			achiev.EventsAttended = "0";
+			achiev.MaxRarity = "Common";
+			achiev.PvPWins = "0";
+			achiev.QuestionsAnswered = "0";
+
+			bool achieveCreationSuccess = Utility.postToAPI<Achievements> (achiev);
 			for(int i = 1; i <= 5; i ++){
 				bool cardCreationSuccess = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (matricNumber, i.ToString()));
 				if(!cardCreationSuccess)
@@ -221,10 +236,16 @@ public class FBscript : MonoBehaviour {
 	}
 
 	public void FBShare() {
+		Achievements achiev = Utility.getFromAPI<Achievements> (matricNumber);
 		FB.ShareLink (
 			contentTitle:"GoodGame message",
 			contentURL:new System.Uri("http://google.com"),
-			contentDescription: "Here is a link to the website",
+			contentDescription: "MatricNumber: " + achiev.MatricNumber + "\n"
+			+ "QuestionsAnswered: " + achiev.QuestionsAnswered + "\n"
+			+ "PvPWins: " + achiev.PvPWins + "\n"
+			+ "CardsObtained: " + achiev.CardsObtained + "\n"
+			+ "EventsAttended: " + achiev.EventsAttended + "\n"
+			+ "MaxRarity: " + achiev.MaxRarity + "\n",
 			callback:OnShare
 		);
 	}	

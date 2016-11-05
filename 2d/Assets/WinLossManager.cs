@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class WinLossManager : MonoBehaviour {
 	//this script is attached to the game canvas
 	Panel[] panels;
@@ -21,7 +21,33 @@ public class WinLossManager : MonoBehaviour {
 		p2Panel=0;
 	}
 
-	void OnGUI(){
+	void Update(){
+		if (numberOfCardsPlaced == 9 && winDisplayed == false) {
+			winDisplayed = true;
+			foreach (Panel p in panels) {
+				s = p.getPlayerOccupyingPanel();
+				if (s == "P1")
+					p1Panel++;
+				else
+					p2Panel++;
+			}
+
+			Text displayText = GameObject.FindWithTag ("WinDisplayText").GetComponent<Text> ();
+
+			if (p1Panel > p2Panel)
+				displayText.text = "P1 Victory";
+			else
+				displayText.text = "P2 Victory";
+
+			Debug.Log (p1Panel);
+			Debug.Log (p2Panel);
+
+
+
+		}
+	}
+
+	/*void OnGUI(){
 		if (numberOfCardsPlaced == 9 && winDisplayed == false) {
 			winDisplayed = true;
 			foreach (Panel p in panels) {
@@ -43,7 +69,7 @@ public class WinLossManager : MonoBehaviour {
 			else
 				GUI.Label (new Rect(100, 100, 100f, 20f), "P2 Victory");
 		}
-	}
+	}*/
 
 	public void increaseNumberOfCardsPlaced(){
 		numberOfCardsPlaced++;

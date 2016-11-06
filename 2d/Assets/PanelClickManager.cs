@@ -25,8 +25,8 @@ public class PanelClickManager : EventTrigger {
 		imageMoved = pos.moveImage (panel);
 		if (imageMoved) {
 			
-			tm.togglePlayerTurn ();	
-			panelUpdater.setColorAccordingToValue (panel);
+			tm.togglePlayerTurn ();	//other player's turn
+			panelUpdater.setColorAccordingToValue (panel);	//used to  determine which the color of the surrounding cards in the panel
 		}
 			
 	}

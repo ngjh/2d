@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class WinLossManager : MonoBehaviour {
-	//this script is attached to the game canvas
+	//this script is attached to the game canvas, incharge of determining the winner and loser
 	Panel[] panels;
 
 	bool winDisplayed = false;
@@ -13,7 +13,7 @@ public class WinLossManager : MonoBehaviour {
 		panels = GetComponentsInChildren<Panel> ();
 	}
 	
-	// Update is called once per frame
+
 	void OnEnable () {
 		winDisplayed = false;
 		numberOfCardsPlaced = 0; 
@@ -21,6 +21,7 @@ public class WinLossManager : MonoBehaviour {
 		p2Panel=0;
 	}
 
+	// Update is called once per frame to check if the game has ended and determines the winner
 	void Update(){
 		if (numberOfCardsPlaced == 9 && winDisplayed == false) {
 			winDisplayed = true;

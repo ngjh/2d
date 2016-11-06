@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 public class UserCardCollectionMgr : MonoBehaviour {
-
+	//attached to the cardcollection button of the main menu canvas
 	public GameObject cardGrid, card;
 	GameObject cardInstance;
 
@@ -11,7 +11,8 @@ public class UserCardCollectionMgr : MonoBehaviour {
 
 	string matricNumber;
 
-
+	//this method is called when the user presses on the card collection button of the main menu canvas
+	//get the cards a user owns from the database and displays it
 	public void displayCards(){
 		
 		foreach (Transform childTransform in cardGrid.transform)//clear all cards being displayed

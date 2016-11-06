@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-//using Pathfinding.Serialization.JsonFx;
 
 
+// this class is used to parse objects to json strings and sent to the api
+// this class converts json objects to objects and strings, the json objects are received from the api
 public class Utility {
 	const string URL= "http://redforgegames.com/user1/api.php/";
 	private Utility(){
 	}
+
+	//T specfies what the json string will be converted into upon receiving the json string
+	//data field specifies the useraccount number
 	public static T getFromAPI<T>(string data){
 		T jsonObject = default(T);
 		WWW jsonData = new WWW (URL + typeof(T).FullName + "/" + data);
@@ -31,7 +35,7 @@ public class Utility {
 	}
 
 
-
+	//add stuff to the database by calling the api accordin to type
 	public static bool postToAPI<T>(T data){
 		WWWForm form = new WWWForm ();
 		//form.headers ["Content-Type"] = "application/json";
@@ -55,6 +59,7 @@ public class Utility {
 			return false;
 	}
 
+	//gets an array of objects from the api
 	public static string getArrayFromAPI(string fromWhere){
 		//List<T> jsonObject = null;
 		//T[] jsonObject = default(T[]);
@@ -72,6 +77,8 @@ public class Utility {
 
 	}
 
+
+	//manually specify which api to post to
 	public static bool postArrayToAPI<T>(string toWhere, T data){
 		
 		WWWForm form = new WWWForm ();

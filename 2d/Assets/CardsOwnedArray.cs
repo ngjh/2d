@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//this two classes are used for parsing into json and from json to following data
 [System.Serializable]
 public class CardsOwnedArray {
 

@@ -14,7 +14,7 @@ public class CardClickManager : EventTrigger {
 		previousSelectedCard = null;
 	}
 
-
+	//called when a user clicks on the card 
 	public override void OnPointerClick( PointerEventData data )
 	{
 		

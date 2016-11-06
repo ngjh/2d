@@ -2,13 +2,15 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//this script is attached to the addfriends canvas
 public class AddFriendsScript : EventTrigger {
-
+	//for initialisation
 	void OnEnable(){
 		Text displayText = GameObject.FindWithTag ("AddFriendsDisplayText").GetComponent<Text> ();
 		displayText.text = "";
 	}
 
+	//called when user presses on the addfriend button 
 	public override void OnPointerClick( PointerEventData data ){
 		InputField userName = GameObject.FindWithTag ("AddFriendsUsernameField").GetComponent<InputField>();
 		Text displayText = GameObject.FindWithTag ("AddFriendsDisplayText").GetComponent<Text> ();

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//used for parsing to json from json to the following data
 [System.Serializable]
 public class FriendsArray{
 

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+//this script is attached to the login button
 public class LoginManager : MonoBehaviour {
 
-	// Use this for initialization
+
 	Camera[] cams;
 	InputField usernameField, passwordField;
 
@@ -17,12 +18,15 @@ public class LoginManager : MonoBehaviour {
 	QuestionManager qmgr;
 
 	UserCardCollectionMgr ucm;
+
+	//used for initialisation
 	void Start(){
 		
 		cams = Camera.allCameras;
 		Debug.Log (cams.Length);
 		ucm = GameObject.FindWithTag ("MainMenuCardsButton").GetComponent<UserCardCollectionMgr> ();
 		usernameField = GameObject.FindWithTag("UsernameField").GetComponent<InputField>();
+		passwordField = GameObject.FindWithTag ("PasswordField").GetComponent<InputField> ();
 		//profileName = GameObject.FindWithTag ("ProfileName").GetComponent<Text> ();
 
 		gameCanvas = GameObject.FindWithTag ("GameCanvas").GetComponent<Canvas> ();
@@ -74,12 +78,14 @@ public class LoginManager : MonoBehaviour {
 
 	}
 
+	//attemps to log the user in by first checking if the user exists, if the user exists and the username and password is correct, proceed with login
 	public void login(){
 		UserAccounts userAccount;
 		userAccount = Utility.getFromAPI<UserAccounts> (usernameField.text);
 
 		if (userAccount != null) {
-			if (string.Compare (usernameField.text, userAccount.getMatricNumber ()) == 0) {
+			if (string.Compare (usernameField.text, userAccount.getMatricNumber ()) == 0
+				&& string.Compare(passwordField.text, userAccount.Password) == 0) {
 				UserAccountholder ua = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();
 				ua.ua = userAccount;
 

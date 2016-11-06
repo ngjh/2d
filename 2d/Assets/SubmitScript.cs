@@ -3,8 +3,12 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class SubmitScript : EventTrigger {
+	//this script is attached to signup button of the signup canvas
 	InputField usernameText, passwordText, lastNameText, firstNameText;
 	Text signUpDisplayText;
+
+	//this method is called when the presses on the signup button and creates an account for the user, it also creates an achievement record to be 
+	//sent to the database, it creates cards for the user and updates the database 
 	public override void OnPointerClick( PointerEventData data ){
 		usernameText = GameObject.FindWithTag ("SUUsernameField").GetComponent<InputField> ();
 		passwordText = GameObject.FindWithTag ("SUPasswordField").GetComponent<InputField> ();

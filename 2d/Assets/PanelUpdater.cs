@@ -28,7 +28,7 @@ public class PanelUpdater : MonoBehaviour {
 			p.setCardOccupyingPanel (null);
 		}
 	}
-
+	//used to  determine which the color of the surrounding cards in the panel
 	public void setColorAccordingToValue(Panel panel){
 		int i;// for index of panel
 		string s, s2;

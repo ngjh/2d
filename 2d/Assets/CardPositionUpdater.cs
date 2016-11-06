@@ -32,6 +32,7 @@ public class CardPositionUpdater : MonoBehaviour {
 		selectedCard = null;
 	}
 
+	//called inside PanelClickManager
 	public bool moveImage(Panel selectedPanel){
 		string cardOwner;
 

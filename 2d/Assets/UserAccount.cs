@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+//used to parse data to json object and from json objects to the following data
 [System.Serializable]
 public class UserAccounts {
 	

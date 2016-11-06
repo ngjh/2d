@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+//this script is attached to the challenge button of the main menu canvas and friends button of the profile canvas
 public class LoadFriendsScrpt : MonoBehaviour {
 
 	// Use this for initialization
@@ -11,7 +12,7 @@ public class LoadFriendsScrpt : MonoBehaviour {
 
 
 
-
+	// displays the friends list when the challenge button  of the mainmenu canvas and friends button of the profile canvas
 	public void displayEntries(){
 
 		foreach (Transform childTransform in FriendListGrid.transform)//clear all cards being displayed
@@ -20,9 +21,9 @@ public class LoadFriendsScrpt : MonoBehaviour {
 
 		//if (!displayed) {
 
-		string json = Utility.getArrayFromAPI ("Friends");
+		string json = Utility.getArrayFromAPI ("Friends");//get from api
 
-		friendsArray = JsonUtility.FromJson<FriendsArray> (json);
+		friendsArray = JsonUtility.FromJson<FriendsArray> (json);//parse from json
 		friendsData = friendsArray.Friends;
 
 		UserAccountholder uah = GameObject.FindWithTag ("UserAccountHolder").GetComponent<UserAccountholder> ();

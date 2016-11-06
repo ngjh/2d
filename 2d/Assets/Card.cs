@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class Card : MonoBehaviour {
 
-	//this script is attached to the cards
+	//this script is attached to the cards in the gamecanvas
 	Text[] displayedValue;
 	Text  txt;
 	Image image ;

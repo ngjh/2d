@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
-
+//attached to event button of main menu canvas, used to enable the event button when it is in a certain loction
 public class GPSManager : MonoBehaviour {
     
 	public Button button;
@@ -56,6 +56,8 @@ public class GPSManager : MonoBehaviour {
     void Update () {
         checkGPS();
     }
+
+	//check if within location, if within, enable the event button, if not, disable it
     void checkGPS() {
         double lat = Input.location.lastData.latitude;
         double len = Input.location.lastData.longitude;

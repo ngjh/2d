@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 public class SetDeckScript : EventTrigger {
+	//this script is attached to the setdeck button of the cardscollection canvas
 	List<CardsData> cardsDataList;
 	Text displayText;
 	Card card0, card1, card2, card3, card4, card5, card6, card7, card8, card9;
@@ -26,6 +27,8 @@ public class SetDeckScript : EventTrigger {
 		if(displayText != null)
 			displayText.text = "";
 	}
+	//called when the set deck button is pressed , cards chosen by the user is passed to the Card class
+	//for now, it also used to set the opponents' cards
 	public override void OnPointerClick( PointerEventData data ){
 		
 		if (cardsDataList == null) {

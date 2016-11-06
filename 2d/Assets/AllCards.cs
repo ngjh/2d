@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 [System.Serializable]
+//this two classes are used to contain the json string contents
 public class AllCards {
 
 	public CardsData[] Cards;

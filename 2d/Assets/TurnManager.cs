@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TurnManager : MonoBehaviour {
-	//this script is attached to the game canvas
+	//this script is attached to the game canvas, manages the current turn of the players
 	bool p1Turn = true;
 	bool p2Turn = false;
 

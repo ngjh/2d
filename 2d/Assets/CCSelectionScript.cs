@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
+//this script is attached to the cards in the card collection canvas
 public class CCSelectionScript : EventTrigger {
 
 	CardsData card;
@@ -22,6 +24,7 @@ public class CCSelectionScript : EventTrigger {
 			iCard.color = Color.white;
 	}
 
+	//called when cards in the card collection canvas is pressed
 	public override void OnPointerClick( PointerEventData data ){
 		bool succ;
 		if (!selected) {

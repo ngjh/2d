@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//for parsing of json string to the following data
 [System.Serializable]
 public class Questions {
 

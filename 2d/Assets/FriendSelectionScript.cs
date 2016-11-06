@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//attached to the friends matric number text of friendscanvas
 public class FriendSelectionScript : EventTrigger {
 
 	bool selected;
@@ -9,7 +10,7 @@ public class FriendSelectionScript : EventTrigger {
 	void Update () {
 	
 	}
-
+	//when a username is clicked, the following happens
 	public override void OnPointerClick( PointerEventData data ){
 		ChallengeScript cs = GameObject.FindWithTag ("ChallengeButton").GetComponent<ChallengeScript> ();
 		Text thisText = gameObject.GetComponent<Text> ();

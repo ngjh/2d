@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using Facebook.Unity;
-
+//attached to facebook logn of login canvas
 public class FBscript : MonoBehaviour {
 
 	public GameObject DialogLoggedIn;
@@ -96,7 +96,9 @@ public class FBscript : MonoBehaviour {
 
 		}
 	}
-
+	//for first time user logging in through their facebook
+	//this method will create an account linked to their facebook
+	//this method has a concurrent execution and is called inside AuthCallbackWithAccountCreation
 	private IEnumerator createAccount(){
 
 		while (firstName == null && lastName == null && fbID == null) {

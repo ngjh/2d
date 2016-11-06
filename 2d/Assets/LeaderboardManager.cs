@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+//attached to the leaderboard button of the mainmenu canvas, used to display the leaderboard entries in the leaderboard canvas
 public class LeaderboardManager : MonoBehaviour {
 
 	public GameObject LeaderboardEntry, LeaderboardGrid;
@@ -12,7 +12,7 @@ public class LeaderboardManager : MonoBehaviour {
 
 
 
-
+	//called when user presses on the leaderboard button in the mainmenu canvas
 	public void displayEntries(){
 
 		foreach (Transform childTransform in LeaderboardGrid.transform)//clear all cards being displayed

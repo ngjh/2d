@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+//attached to eventcanvas, in charge of loading questions and tracking the user's answers
 public class QuestionManager : MonoBehaviour {
 	
 	Questions questions;
@@ -41,6 +42,7 @@ public class QuestionManager : MonoBehaviour {
 			matricNumber = ua.ua.MatricNumber;
 	}
 
+	//returns the correct answer
 	public string getCorrectAnswer(){
 		if (string.Compare (questions.CorrectAnswer, "A") == 0)
 			return questions.A;
@@ -59,6 +61,7 @@ public class QuestionManager : MonoBehaviour {
 		questionAnswered = true;
 	}
 
+	//user answered correctly, add a card to user's account
 	public void setAnsweredCorrectly(){
 		answeredCorrectly = true;
 		bool succ = Utility.postArrayToAPI ("CardsOwned", new CardsOwnedData (matricNumber, "12"));
@@ -76,6 +79,7 @@ public class QuestionManager : MonoBehaviour {
 			userAnswer = "D";
 	}
 
+	//update the database with the user's answer
 	public void updateDatabase(){
 
 		Answers ad = new Answers();

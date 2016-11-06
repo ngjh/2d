@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
+//class is used as data holder for the jsonutility to parse
 [System.Serializable]
 public class Achievements{
 	public string MatricNumber;
@@ -10,7 +12,7 @@ public class Achievements{
 	public string EventsAttended;
 	public string MaxRarity;
 }
-
+// attached to achievement button in the main menu, 
 public class AchievementDisplayScript : MonoBehaviour {
 
 	public GameObject AchievementEntry, AchievementGrid;
@@ -19,7 +21,7 @@ public class AchievementDisplayScript : MonoBehaviour {
 
 
 
-
+	//displays all achievments of a user
 	public void displayEntries(){
 
 		foreach (Transform childTransform in AchievementGrid.transform)//clear all cards being displayed

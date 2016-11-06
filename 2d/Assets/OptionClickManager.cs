@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//attached to the options buttons in the event canvas
 public class OptionClickManager : EventTrigger {
 
 	// Use this for initialization
@@ -10,7 +11,7 @@ public class OptionClickManager : EventTrigger {
 	Text optionText;
 	QuestionManager qmgr;
 
-
+	//called when the options buttons is pressed and updates the question manager on which is option was pressed
 	public override void OnPointerClick(PointerEventData data){
 		Text displayText = GameObject.FindWithTag ("CorrectWrongDisplayText").GetComponent<Text> ();
 		button = GetComponent<Button> ();

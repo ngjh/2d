@@ -20,4 +20,8 @@ public class ChallengeScript : MonoBehaviour {
 	public void removeSelectedFriend(){
 		friendMatricNumber = null;
 	}
+
+	public string getSelectedFriends(){
+		return friendMatricNumber;
+	}
 }

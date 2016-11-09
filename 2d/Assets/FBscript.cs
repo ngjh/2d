@@ -27,8 +27,8 @@ public class FBscript : MonoBehaviour {
 		mainMenuCanvas = GameObject.FindWithTag ("MainMenuCanvas").GetComponent<Canvas> ();
 		loginCanvas = GameObject.FindWithTag ("LoginCanvas").GetComponent<Canvas> ();
 		cams = Camera.allCameras;
-		mainMenuCamera = cams [10];
-		loginCamera = cams [11];
+		mainMenuCamera = cams [11];
+		loginCamera = cams [12];
 
 		if (!FB.IsInitialized) {
 			// Initialize the Facebook SDK

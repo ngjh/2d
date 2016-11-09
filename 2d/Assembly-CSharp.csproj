@@ -91,6 +91,10 @@
      <Compile Include="Assets\Questions.cs" />
      <Compile Include="Assets\ScrollBarValueChanger.cs" />
      <Compile Include="Assets\SetDeckScript.cs" />
+     <Compile Include="Assets\StoryScripts\Character.cs" />
+     <Compile Include="Assets\StoryScripts\ChoiceButton.cs" />
+     <Compile Include="Assets\StoryScripts\DialogueManager.cs" />
+     <Compile Include="Assets\StoryScripts\DialogueParser.cs" />
      <Compile Include="Assets\SubmitScript.cs" />
      <Compile Include="Assets\TurnManager.cs" />
      <Compile Include="Assets\UserAccount.cs" />
@@ -100,6 +104,7 @@
      <Compile Include="Assets\WinLossManager.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\ColorfulButtons\Credits.txt" />
+     <None Include="Assets\Data\Dialogue1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

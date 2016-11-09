@@ -11,7 +11,7 @@ public class LoginManager : MonoBehaviour {
 	Camera mainCamera, storyCamera, profileCamera, cardsCamera, mainMenuCamera, loginCamera;
 
 	Canvas gameCanvas, storyCanvas, loginCanvas, mainMenuCanvas, profileCanvas, CardsCanvas, eventCanvas, leaderboardCanvas,
-		signUpCanvas, friendsCanvas, achievementCanvas, addFriendsCanvas, friendsListCanvas;
+		signUpCanvas, friendsCanvas, achievementCanvas, addFriendsCanvas, friendsListCanvas, dialogueCanvas;
 
 	Text loginDisplayText, profileName;
 
@@ -42,6 +42,7 @@ public class LoginManager : MonoBehaviour {
 		achievementCanvas = GameObject.FindWithTag ("AchievementCanvas").GetComponent<Canvas> ();
 		addFriendsCanvas = GameObject.FindWithTag ("AddFriendsCanvas").GetComponent<Canvas> ();
 		friendsListCanvas = GameObject.FindWithTag ("FriendsListCanvas").GetComponent<Canvas> ();
+		dialogueCanvas = GameObject.FindWithTag ("DialogueCanvas").GetComponent<Canvas> ();
 
 		qmgr = eventCanvas.GetComponent<QuestionManager> ();
 
@@ -58,21 +59,23 @@ public class LoginManager : MonoBehaviour {
 		achievementCanvas.gameObject.SetActive (false);
 		addFriendsCanvas.gameObject.SetActive (false);
 		friendsListCanvas.gameObject.SetActive (false);
+		dialogueCanvas.gameObject.SetActive (false);
 
 
 		cams[0].gameObject.SetActive (true);// Maincamera
-		cams[1].gameObject.SetActive (false);//storycamera
-		cams[2].gameObject.SetActive (false);//leaderboardcamera
-		cams[3].gameObject.SetActive (false);//eventcamera
-		cams[4].gameObject.SetActive (false);//profilecamera
-		cams[5].gameObject.SetActive (false);//cardscamera
-		cams[6].gameObject.SetActive (false);//addfriendscamera
-		cams[7].gameObject.SetActive (false);//friendslistCamera
-		cams[8].gameObject.SetActive(false);//achievementcamera
-		cams[9].gameObject.SetActive(false);//friendcamera
-		cams[10].gameObject.SetActive(false);//mainmenucamera
-		cams[11].gameObject.SetActive(true);//logincamera
-		cams [12].gameObject.SetActive (false);//signupcamera
+		cams[1].gameObject.SetActive (false);//dialoguecamera
+		cams[2].gameObject.SetActive (false);//storycamera
+		cams[3].gameObject.SetActive (false);//leaderboardcamera
+		cams[4].gameObject.SetActive (false);//eventcamera
+		cams[5].gameObject.SetActive (false);//profilecamera
+		cams[6].gameObject.SetActive (false);//cardscamera
+		cams[7].gameObject.SetActive (false);//addfriendscamera
+		cams[8].gameObject.SetActive(false);//friendslistCamera
+		cams[9].gameObject.SetActive(false);//achievementcamera
+		cams[10].gameObject.SetActive(false);//friendcamera
+		cams[11].gameObject.SetActive(false);//mainmenucamera
+		cams [12].gameObject.SetActive (true);//logincamera
+		cams[13].gameObject.SetActive(false);//signupcamera
 
 		loginDisplayText = GameObject.FindWithTag ("LoginDisplayText").GetComponent<Text> ();
 
@@ -90,8 +93,8 @@ public class LoginManager : MonoBehaviour {
 				ua.ua = userAccount;
 
 				//profileName.text = userAccount.FirstName;
-				cams [10].gameObject.SetActive (true);
-				cams [11].gameObject.SetActive (false);
+				cams [11].gameObject.SetActive (true);
+				cams [12].gameObject.SetActive (false);
 				mainMenuCanvas.gameObject.SetActive (true);
 				loginCanvas.gameObject.SetActive (false);
 			} else {

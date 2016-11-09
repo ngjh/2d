@@ -1,0 +1,8 @@
+Kyle;Where is the Guardian?;0;R
+Orien;Master is not in his sanctum at the moment. How may i help?;0;L
+Kyle;Since you are his apprentice, you should be informed about it as well.;1;R
+Kyle;The realm is facing some unknown enemies, we received reports on sightings of dark energies on the border skirmishes. We are not exactly sure what it is, but the council suspects it's magic that's ancient and forbidden.;1;R
+Orien;Ancient and forbidden?;0;L
+Kyle;Yes;1;R
+Orien;I don't like the sound of this, something is really amiss, truth be told, the Guardian haven't returned since 2 weeks ago.;0;L
+Kyle;...;1;R
